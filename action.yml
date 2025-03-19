@@ -1,0 +1,27 @@
+name: 'TiDB Docs Reviewer'
+description: 'A GitHub Action that leverages OpenAI to provide intelligent feedback on pull requests'
+author: 'Liya Du'
+
+inputs:
+  GITHUB_TOKEN:
+    description: 'GitHub token for API access'
+    required: true
+  OPENAI_API_KEY:
+    description: 'OpenAI API key'
+    required: true
+  OPENAI_API_MODEL:
+    description: 'OpenAI model to use'
+    required: false
+    default: 'gpt-4-1106-preview'
+  exclude:
+    description: 'Comma-separated list of glob patterns to exclude'
+    required: false
+    default: ''
+
+runs:
+  using: 'node22'
+  main: 'lib/main.js'
+
+branding:
+  icon: 'book-open'
+  color: 'blue' 
